@@ -6,8 +6,10 @@ services:
     container_name: nodeseek-monitor
     restart: always
     environment:
-      - CHECK_INTERVAL=10
-      - TG_BOT_TOKEN=XXX:XXX
-      - TG_ADMIN_CHAT_ID=XXX
+      # 语法 ${VAR_NAME} 会自动读取 .env 文件中的对应变量；
+      # 如果你在本文件中直接写写死值（如 CHECK_INTERVAL=15），它将覆盖 .env 中的值。
+      - TG_BOT_TOKEN=${TG_BOT_TOKEN}
+      - TG_ADMIN_CHAT_ID=${TG_ADMIN_CHAT_ID}
+      - CHECK_INTERVAL=${CHECK_INTERVAL}
     volumes:
       - ./keywords.json:/app/keywords.json

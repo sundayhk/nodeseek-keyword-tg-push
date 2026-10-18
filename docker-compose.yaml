@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  nodeseek-monitor:
+    build: .
+    container_name: nodeseek-monitor
+    restart: always
+    environment:
+      - CHECK_INTERVAL=10
+      - TG_BOT_TOKEN=XXX:XXX
+      - TG_ADMIN_CHAT_ID=XXX
+    volumes:
+      - ./keywords.json:/app/keywords.json

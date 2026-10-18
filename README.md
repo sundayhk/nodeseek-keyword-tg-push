@@ -23,6 +23,6 @@
 nodeseek-keyword-tg-push/
 ├── .env-example         # 环境变量配置模板
 ├── docker-compose.yaml  # Docker Compose 编排文件
-├── Dockerfile           # 镜像构建文件（含 Alpine 时区支持）
+├── Dockerfile           # 镜像构建文件
 ├── index.js             # 核心业务逻辑与 Telegram 机器人代码
 └── keywords.json        # 监控规则持久化存储文件（自动生成/挂载）

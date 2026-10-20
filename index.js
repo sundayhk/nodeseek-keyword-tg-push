@@ -234,7 +234,11 @@ async function pollTelegramUpdates() {
                             return true;
                         });
                         saveKeywords();
-                        await sendTelegramMessage(chatId, `✅ <b>成功删除 ${deletedCount} 条规则！</b>`);
+                        let listStr = '暂无，当前规则列表为空';
+                        if (keywords.length > 0) {
+                            listStr = keywords.map((k, idx) => `<b>${idx + 1}.</b> <code>${k}</code>`).join('\n');
+                        }
+                        await sendTelegramMessage(chatId, `✅ <b>成功删除 ${deletedCount} 条规则！</b>\n\n<b>当前剩余监控规则列表：</b>\n${listStr}`);
                     } else {
                         await sendTelegramMessage(chatId, `⚠️ 未找到指定的序号、范围或规则。`);
                     }

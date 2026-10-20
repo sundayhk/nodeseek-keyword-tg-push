@@ -52,7 +52,7 @@ function saveKeywords() {
 }
 
 const notifiedItems = new Set();
-let isFirstRun = true;
+let isFirstRun = true; // 第一次或重新运行将帖子初始加入内存集合，避免重复推送。即当你重启容器，脚本会“第一次运行静默初始化”，把当时 RSS 列表里的 20 篇老帖子重新加入内存，不会推送给你的 Telegram。它只会默默等待重启后诞生的“真正的新帖”
 let lastUpdateId = 0;
 
 async function sendTelegramMessage(chatId, text) {
